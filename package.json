@@ -1,0 +1,22 @@
+{
+  "name": "document-editor-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "wasm:build": "emcmake cmake -S . -B build/wasm -DCMAKE_BUILD_TYPE=Release && cmake --build build/wasm --parallel",
+    "test:cpp": "cmake -S . -B build/native -DCMAKE_BUILD_TYPE=Debug && cmake --build build/native --parallel && ctest --test-dir build/native --output-on-failure"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.10",
+    "typescript": "5.8.2",
+    "vite": "6.2.2",
+    "vitest": "3.0.8"
+  }
+}
